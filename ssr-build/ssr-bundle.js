@@ -4569,11 +4569,15 @@ var app_App = function (_Component) {
 			});
 		}, _temp), app__possibleConstructorReturn(_this, _ret);
 	}
+
 	/** Gets fired when the route changes.
   *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
   *	@param {string} event.url	The newly routed URL
   */
 
+	App.prototype.componentDidMount = function componentDidMount() {
+		console.log('### App mountet, Mode:', "production");
+	};
 
 	App.prototype.render = function render() {
 		return Object(preact_min["h"])(
@@ -4582,7 +4586,7 @@ var app_App = function (_Component) {
 			Object(preact_min["h"])(header_Header, { selectedRoute: this.state.currentUrl }),
 			Object(preact_min["h"])(
 				preact_router_es_Router,
-				{ onChange: this.handleRoute },
+				{ basename:  true ? '/preact-profile' : '', onChange: this.handleRoute },
 				app__ref,
 				app__ref2,
 				app__ref3,
